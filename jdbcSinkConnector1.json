@@ -1,0 +1,19 @@
+{
+    "name": "sink-connector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "topics": "postgres.public.unit1",
+        "connection.url": "jdbc:postgresql://target_postgres:5432/targetdb",
+        "connection.user": "pfaa2024",
+        "connection.password": "pfaa2024",
+        "insert.mode": "upsert",
+        "pk.mode": "record_key",
+        "pk.fields": "id",
+        "auto.create": "true",
+        "auto.evolve": "true",
+        "transforms": "unwrap",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+        "table.name.format": "public.unit1"
+    }
+}
